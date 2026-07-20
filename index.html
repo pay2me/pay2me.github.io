@@ -1,143 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>💸 Scan to Pay - Vikas Sharma</title>
+<title>💸 Scan to Pay • Vikas Sharma</title>
 
-    <meta name="description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl • Scan the QR code using any UPI app.">
+<meta name="description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl • Tap Pay Now or scan the QR code.">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="💸 Scan to Pay">
-    <meta property="og:description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl • Scan the QR code using any UPI app.">
-    <meta property="og:url" content="https://pay2me.github.io/">
-    <meta property="og:image" content="https://pay2me.github.io/qr.png">
-    <meta property="og:image:type" content="image/png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="💸 Scan to Pay">
+<meta property="og:description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl">
+<meta property="og:image" content="https://pay2me.github.io/qr.png">
+<meta property="og:url" content="https://pay2me.github.io/">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="💸 Scan to Pay">
-    <meta name="twitter:description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl">
-    <meta name="twitter:image" content="https://pay2me.github.io/qr.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="💸 Scan to Pay">
+<meta name="twitter:description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl">
+<meta name="twitter:image" content="https://pay2me.github.io/qr.png">
 
-    <link rel="icon" href="qr.png">
+<link rel="icon" href="qr.png">
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial,sans-serif;
-        }
+<style>
 
-        body{
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            min-height:100vh;
-            background:#f5f5f5;
-            color:#222;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-        .card{
-            background:#fff;
-            padding:30px;
-            border-radius:15px;
-            box-shadow:0 5px 20px rgba(0,0,0,.15);
-            text-align:center;
-            max-width:380px;
-            width:90%;
-        }
+body{
+background:#f3f5f7;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
 
-        h1{
-            font-size:28px;
-            margin-bottom:15px;
-        }
+.card{
+background:#fff;
+max-width:420px;
+width:100%;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 35px rgba(0,0,0,.12);
+text-align:center;
+}
 
-        img{
-            width:100%;
-            max-width:280px;
-            border-radius:10px;
-        }
+.loader{
+width:22px;
+height:22px;
+border:3px solid #ddd;
+border-top:3px solid #0d6efd;
+border-radius:50%;
+animation:spin 1s linear infinite;
+margin:0 auto 15px;
+}
 
-        h2{
-            margin-top:20px;
-        }
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
 
-        .upi{
-            margin:10px 0;
-            font-size:18px;
-            font-weight:bold;
-            word-break:break-all;
-        }
+h1{
+margin-bottom:10px;
+}
 
-        button{
-            padding:12px 20px;
-            border:none;
-            background:#0d6efd;
-            color:white;
-            border-radius:8px;
-            cursor:pointer;
-            font-size:16px;
-        }
+.status{
+color:#666;
+margin-bottom:20px;
+font-size:15px;
+}
 
-        button:hover{
-            background:#0b5ed7;
-        }
+img{
+width:100%;
+max-width:260px;
+border-radius:12px;
+margin:10px auto 20px;
+display:block;
+}
 
-        p{
-            margin-top:20px;
-            color:#666;
-        }
+.name{
+font-size:24px;
+font-weight:bold;
+}
 
-        @media(prefers-color-scheme:dark){
-            body{
-                background:#111;
-                color:#fff;
-            }
+.upi{
+margin-top:10px;
+font-size:18px;
+word-break:break-all;
+color:#444;
+}
 
-            .card{
-                background:#1f1f1f;
-            }
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+font-size:17px;
+cursor:pointer;
+margin-top:15px;
+}
 
-            p{
-                color:#bbb;
-            }
-        }
-    </style>
+.pay{
+background:#0d6efd;
+color:#fff;
+}
+
+.copy{
+background:#eee;
+}
+
+.footer{
+margin-top:25px;
+font-size:14px;
+color:#666;
+}
+
+@media (prefers-color-scheme:dark){
+
+body{
+background:#101214;
+}
+
+.card{
+background:#1c1f23;
+color:#fff;
+}
+
+.upi{
+color:#ddd;
+}
+
+.copy{
+background:#333;
+color:#fff;
+}
+
+.footer,.status{
+color:#aaa;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="card">
 
-<h1>Scan to Pay</h1>
+<div class="loader"></div>
+
+<h1>Opening your UPI app...</h1>
+
+<div class="status">
+If nothing happens, tap <b>Pay Now</b> or scan the QR code.
+</div>
 
 <img src="qr.png" alt="UPI QR">
 
-<h2>Vikas Sharma</h2>
+<div class="name">
+Vikas Sharma
+</div>
 
 <div class="upi" id="upi">
 mstrvikasaxis@ybl
 </div>
 
-<button onclick="copyUPI()">
-Copy UPI ID
+<button class="pay" onclick="payNow()">
+💳 Pay Now
 </button>
 
-<p>
-Thank you for your payment
-</p>
+<button class="copy" onclick="copyUPI()">
+📋 Copy UPI ID
+</button>
+
+<div class="footer">
+Thank you for your payment ❤️
+</div>
 
 </div>
 
 <script>
-function copyUPI(){
-    navigator.clipboard.writeText("mstrvikasaxis@ybl");
-    alert("UPI ID copied!");
+
+const upi =
+"upi://pay?pa=mstrvikasaxis@ybl&pn=Vikas%20Sharma&cu=INR";
+
+function payNow(){
+window.location.href=upi;
 }
+
+function copyUPI(){
+
+navigator.clipboard.writeText("mstrvikasaxis@ybl");
+
+alert("UPI ID copied.");
+
+}
+
+setTimeout(()=>{
+window.location.href=upi;
+},1000);
+
 </script>
 
 </body>
