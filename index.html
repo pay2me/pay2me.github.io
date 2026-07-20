@@ -2,209 +2,84 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>💸 Scan to Pay • Vikas Sharma</title>
-
-<meta name="description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl • Tap Pay Now or scan the QR code.">
-
+<meta name="description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl • Scan QR or tap Pay Now.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="💸 Scan to Pay">
 <meta property="og:description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl">
-<meta property="og:image" content="https://pay2me.github.io/qr.png">
 <meta property="og:url" content="https://pay2me.github.io/">
-
+<meta property="og:image" content="https://pay2me.github.io/qr.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="💸 Scan to Pay">
 <meta name="twitter:description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl">
 <meta name="twitter:image" content="https://pay2me.github.io/qr.png">
-
-<link rel="icon" href="qr.png">
-
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#eef3ff;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}
+.card{max-width:420px;width:100%;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.15)}
+.header{background:linear-gradient(135deg,#0d6efd,#4f8cff);padding:24px;color:#fff;text-align:center}
+.content{padding:24px;text-align:center}
+img{max-width:260px;width:100%;border-radius:12px;border:1px solid #ddd}
+.name{font-size:26px;font-weight:bold;margin-top:18px}
+.upi{margin-top:8px;color:#666;font-weight:bold;word-break:break-all}
+.btn{display:block;width:100%;padding:14px;border:none;border-radius:10px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:14px}
+.pay{background:#0d6efd;color:#fff}
+.copy{background:#ececec}
+.note{margin-top:20px;color:#666;font-size:14px}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:12px 18px;border-radius:8px;opacity:0;transition:.3s}
+.toast.show{opacity:1}
+@media(prefers-color-scheme:dark){
+body{background:#111}
+.card{background:#1d1d1d;color:#fff}
+.upi,.note{color:#bbb}
+.copy{background:#333;color:#fff}
 }
-
-body{
-background:#f3f5f7;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:20px;
-}
-
-.card{
-background:#fff;
-max-width:420px;
-width:100%;
-padding:30px;
-border-radius:18px;
-box-shadow:0 10px 35px rgba(0,0,0,.12);
-text-align:center;
-}
-
-.loader{
-width:22px;
-height:22px;
-border:3px solid #ddd;
-border-top:3px solid #0d6efd;
-border-radius:50%;
-animation:spin 1s linear infinite;
-margin:0 auto 15px;
-}
-
-@keyframes spin{
-100%{transform:rotate(360deg);}
-}
-
-h1{
-margin-bottom:10px;
-}
-
-.status{
-color:#666;
-margin-bottom:20px;
-font-size:15px;
-}
-
-img{
-width:100%;
-max-width:260px;
-border-radius:12px;
-margin:10px auto 20px;
-display:block;
-}
-
-.name{
-font-size:24px;
-font-weight:bold;
-}
-
-.upi{
-margin-top:10px;
-font-size:18px;
-word-break:break-all;
-color:#444;
-}
-
-button{
-width:100%;
-padding:14px;
-border:none;
-border-radius:10px;
-font-size:17px;
-cursor:pointer;
-margin-top:15px;
-}
-
-.pay{
-background:#0d6efd;
-color:#fff;
-}
-
-.copy{
-background:#eee;
-}
-
-.footer{
-margin-top:25px;
-font-size:14px;
-color:#666;
-}
-
-@media (prefers-color-scheme:dark){
-
-body{
-background:#101214;
-}
-
-.card{
-background:#1c1f23;
-color:#fff;
-}
-
-.upi{
-color:#ddd;
-}
-
-.copy{
-background:#333;
-color:#fff;
-}
-
-.footer,.status{
-color:#aaa;
-}
-
-}
-
 </style>
 </head>
-
 <body>
-
 <div class="card">
-
-<div class="loader"></div>
-
-<h1>Opening your UPI app...</h1>
-
-<div class="status">
-If nothing happens, tap <b>Pay Now</b> or scan the QR code.
+<div class="header">
+<h1>💸 Scan to Pay</h1>
+<p>Secure UPI Payment</p>
 </div>
-
+<div class="content">
 <img src="qr.png" alt="UPI QR">
+<div class="name">Vikas Sharma</div>
+<div class="upi" id="upi">mstrvikasaxis@ybl</div>
 
-<div class="name">
-Vikas Sharma
+<button class="btn pay" onclick="payNow()">💳 Pay Now</button>
+<button class="btn copy" onclick="copyUPI()">📋 Copy UPI ID</button>
+
+<div class="note">
+Works with PhonePe • Google Pay • Paytm • BHIM
+<br><br>
+❤️ Thank you for your payment
+</div>
+</div>
 </div>
 
-<div class="upi" id="upi">
-mstrvikasaxis@ybl
-</div>
-
-<button class="pay" onclick="payNow()">
-💳 Pay Now
-</button>
-
-<button class="copy" onclick="copyUPI()">
-📋 Copy UPI ID
-</button>
-
-<div class="footer">
-Thank you for your payment ❤️
-</div>
-
-</div>
+<div id="toast" class="toast">UPI ID copied</div>
 
 <script>
-
-const upi =
-"upi://pay?pa=mstrvikasaxis@ybl&pn=Vikas%20Sharma&cu=INR";
+const upi="upi://pay?pa=mstrvikasaxis@ybl&pn=Vikas%20Sharma&cu=INR";
 
 function payNow(){
-window.location.href=upi;
+ location.href=upi;
+ setTimeout(()=>{
+   document.querySelector('.note').innerHTML=
+   "If no UPI app opened, please scan the QR code above.<br><br>❤️ Thank you for your payment";
+ },1800);
 }
-
 function copyUPI(){
-
-navigator.clipboard.writeText("mstrvikasaxis@ybl");
-
-alert("UPI ID copied.");
-
+ navigator.clipboard.writeText("mstrvikasaxis@ybl");
+ const t=document.getElementById("toast");
+ t.classList.add("show");
+ setTimeout(()=>t.classList.remove("show"),2000);
 }
-
-setTimeout(()=>{
-window.location.href=upi;
-},1000);
-
+if(/Android/i.test(navigator.userAgent)){
+ setTimeout(()=>location.href=upi,1000);
+}
 </script>
-
 </body>
 </html>
