@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>💸 Scan to Pay - Vikas Sharma</title>
+
+    <meta name="description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl • Scan the QR code using any UPI app.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="💸 Scan to Pay">
+    <meta property="og:description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl • Scan the QR code using any UPI app.">
+    <meta property="og:url" content="https://pay2me.github.io/">
+    <meta property="og:image" content="https://pay2me.github.io/qr.png">
+    <meta property="og:image:type" content="image/png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="💸 Scan to Pay">
+    <meta name="twitter:description" content="Vikas Sharma • UPI ID: mstrvikasaxis@ybl">
+    <meta name="twitter:image" content="https://pay2me.github.io/qr.png">
+
+    <link rel="icon" href="qr.png">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            background:#f5f5f5;
+            color:#222;
+        }
+
+        .card{
+            background:#fff;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 5px 20px rgba(0,0,0,.15);
+            text-align:center;
+            max-width:380px;
+            width:90%;
+        }
+
+        h1{
+            font-size:28px;
+            margin-bottom:15px;
+        }
+
+        img{
+            width:100%;
+            max-width:280px;
+            border-radius:10px;
+        }
+
+        h2{
+            margin-top:20px;
+        }
+
+        .upi{
+            margin:10px 0;
+            font-size:18px;
+            font-weight:bold;
+            word-break:break-all;
+        }
+
+        button{
+            padding:12px 20px;
+            border:none;
+            background:#0d6efd;
+            color:white;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#0b5ed7;
+        }
+
+        p{
+            margin-top:20px;
+            color:#666;
+        }
+
+        @media(prefers-color-scheme:dark){
+            body{
+                background:#111;
+                color:#fff;
+            }
+
+            .card{
+                background:#1f1f1f;
+            }
+
+            p{
+                color:#bbb;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Scan to Pay</h1>
+
+<img src="qr.png" alt="UPI QR">
+
+<h2>Vikas Sharma</h2>
+
+<div class="upi" id="upi">
+mstrvikasaxis@ybl
+</div>
+
+<button onclick="copyUPI()">
+Copy UPI ID
+</button>
+
+<p>
+Thank you for your payment
+</p>
+
+</div>
+
+<script>
+function copyUPI(){
+    navigator.clipboard.writeText("mstrvikasaxis@ybl");
+    alert("UPI ID copied!");
+}
+</script>
+
+</body>
+</html>
